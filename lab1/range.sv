@@ -26,7 +26,7 @@ module range
   // -----------------------------
   // Control logic for range
   // -----------------------------
-
+  logic seen_done;
   logic [15:0] steps;
 
   logic 			 we;                    // Write din to addr
@@ -35,7 +35,7 @@ module range
   logic [RAM_ADDR_BITS - 1:0] 	 addr;
   // Address to read/write
 
-  typedef enum logic [2:0] {S_IDLE, S_RUN, S_WRITE, S_NEXT, S_DONE} state_t;
+  typedef enum logic [2:0] {S_IDLE, S_LAUNCH, S_RUN, S_WRITE, S_NEXT, S_DONE} state_t;
   state_t state = S_IDLE;
 
 
@@ -55,12 +55,18 @@ module range
 
         if (go)
         begin
+          seen_done <= 1'b0;
           num     <= '0;
           n       <= start;
           steps   <= 16'd0;
-          cgo     <= 1'b1;      // launch collatz (1-cycle pulse)
-          state   <= S_RUN;
+          state   <= S_LAUNCH;
         end
+      end
+
+      S_LAUNCH:
+      begin
+        cgo <= 1'b1;          // make sure to only pulse cgo for 1 cycle
+        state <= S_RUN;
       end
 
       // -------- RUN --------
@@ -71,8 +77,9 @@ module range
         begin
           steps <= steps + 16'd1;
         end
-        else
+        else if (!seen_done)
         begin
+          seen_done <= 1'b1;    // make sure we only do this once per run
           din   <= steps;       // latch result to write
           state <= S_WRITE;
         end
@@ -98,12 +105,12 @@ module range
       // advance address/value AFTER the write has happened
       S_NEXT:
       begin
+        seen_done <= 1'b0;
         num   <= num + 1'b1;
         n     <= n + 32'd1;
         steps <= 16'd0;
         cgo   <= 1'b1;          // launch next collatz
-        state <= S_RUN;
-        cdone <= 1'b0;          // clear done for next run
+        state <= S_LAUNCH;
       end
 
       // -------- DONE --------

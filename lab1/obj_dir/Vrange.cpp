@@ -88,9 +88,10 @@ VL_INLINE_OPT void Vrange::_sequent__TOP__1(Vrange__Syms* __restrict vlSymsp) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vrange::_sequent__TOP__1\n"); );
     Vrange* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
     // Variables
+    CData/*0:0*/ __Vdly__range__DOT__cgo;
     CData/*2:0*/ __Vdly__range__DOT__state;
     CData/*3:0*/ __Vdly__range__DOT__num;
-    CData/*0:0*/ __Vdly__range__DOT__cdone;
+    CData/*0:0*/ __Vdly__range__DOT__seen_done;
     CData/*3:0*/ __Vdlyvdim0__range__DOT__mem__v0;
     CData/*0:0*/ __Vdlyvset__range__DOT__mem__v0;
     CData/*0:0*/ __Vdly__range__DOT__c1__DOT__run;
@@ -99,18 +100,96 @@ VL_INLINE_OPT void Vrange::_sequent__TOP__1(Vrange__Syms* __restrict vlSymsp) {
     IData/*31:0*/ __Vdly__range__DOT__n;
     IData/*31:0*/ __Vdly__range__DOT__c1__DOT__dout;
     // Body
-    __Vdly__range__DOT__steps = vlTOPp->range__DOT__steps;
-    __Vdly__range__DOT__n = vlTOPp->range__DOT__n;
-    __Vdly__range__DOT__state = vlTOPp->range__DOT__state;
-    __Vdly__range__DOT__num = vlTOPp->range__DOT__num;
     __Vdly__range__DOT__c1__DOT__run = vlTOPp->range__DOT__c1__DOT__run;
     __Vdly__range__DOT__c1__DOT__dout = vlTOPp->range__DOT__c1__DOT__dout;
-    __Vdly__range__DOT__cdone = vlTOPp->range__DOT__cdone;
+    __Vdly__range__DOT__seen_done = vlTOPp->range__DOT__seen_done;
+    __Vdly__range__DOT__steps = vlTOPp->range__DOT__steps;
+    __Vdly__range__DOT__n = vlTOPp->range__DOT__n;
+    __Vdly__range__DOT__cgo = vlTOPp->range__DOT__cgo;
+    __Vdly__range__DOT__state = vlTOPp->range__DOT__state;
+    __Vdly__range__DOT__num = vlTOPp->range__DOT__num;
     __Vdlyvset__range__DOT__mem__v0 = 0U;
     vlTOPp->count = vlTOPp->range__DOT__mem[vlTOPp->range__DOT__addr];
+    if (vlTOPp->range__DOT__we) {
+        __Vdlyvval__range__DOT__mem__v0 = vlTOPp->range__DOT__din;
+        __Vdlyvset__range__DOT__mem__v0 = 1U;
+        __Vdlyvdim0__range__DOT__mem__v0 = vlTOPp->range__DOT__addr;
+    }
+    if (__Vdlyvset__range__DOT__mem__v0) {
+        vlTOPp->range__DOT__mem[__Vdlyvdim0__range__DOT__mem__v0] 
+            = __Vdlyvval__range__DOT__mem__v0;
+    }
+    __Vdly__range__DOT__cgo = 0U;
+    vlTOPp->range__DOT__we = 0U;
+    if ((4U & (IData)(vlTOPp->range__DOT__state))) {
+        if ((2U & (IData)(vlTOPp->range__DOT__state))) {
+            __Vdly__range__DOT__state = 0U;
+        } else {
+            if ((1U & (IData)(vlTOPp->range__DOT__state))) {
+                vlTOPp->done = 1U;
+                if (vlTOPp->go) {
+                    vlTOPp->done = 0U;
+                    __Vdly__range__DOT__num = 0U;
+                    __Vdly__range__DOT__n = vlTOPp->start;
+                    __Vdly__range__DOT__steps = 0U;
+                    __Vdly__range__DOT__cgo = 1U;
+                    __Vdly__range__DOT__state = 2U;
+                }
+            } else {
+                __Vdly__range__DOT__num = (0xfU & ((IData)(1U) 
+                                                   + (IData)(vlTOPp->range__DOT__num)));
+                __Vdly__range__DOT__n = ((IData)(1U) 
+                                         + vlTOPp->range__DOT__n);
+                __Vdly__range__DOT__seen_done = 0U;
+                __Vdly__range__DOT__steps = 0U;
+                __Vdly__range__DOT__cgo = 1U;
+                __Vdly__range__DOT__state = 1U;
+            }
+        }
+    } else {
+        if ((2U & (IData)(vlTOPp->range__DOT__state))) {
+            if ((1U & (IData)(vlTOPp->range__DOT__state))) {
+                vlTOPp->range__DOT__we = 1U;
+                __Vdly__range__DOT__state = ((0xfU 
+                                              == (IData)(vlTOPp->range__DOT__num))
+                                              ? 5U : 4U);
+            } else {
+                if (vlTOPp->range__DOT__cdone) {
+                    if ((1U & (~ (IData)(vlTOPp->range__DOT__seen_done)))) {
+                        __Vdly__range__DOT__seen_done = 1U;
+                        vlTOPp->range__DOT__din = vlTOPp->range__DOT__steps;
+                        __Vdly__range__DOT__state = 3U;
+                    }
+                } else {
+                    __Vdly__range__DOT__steps = (0xffffU 
+                                                 & ((IData)(1U) 
+                                                    + (IData)(vlTOPp->range__DOT__steps)));
+                }
+            }
+        } else {
+            if ((1U & (IData)(vlTOPp->range__DOT__state))) {
+                __Vdly__range__DOT__cgo = 1U;
+                __Vdly__range__DOT__state = 2U;
+            } else {
+                vlTOPp->done = 0U;
+                __Vdly__range__DOT__steps = 0U;
+                if (vlTOPp->go) {
+                    __Vdly__range__DOT__seen_done = 0U;
+                    __Vdly__range__DOT__num = 0U;
+                    __Vdly__range__DOT__n = vlTOPp->start;
+                    __Vdly__range__DOT__steps = 0U;
+                    __Vdly__range__DOT__state = 1U;
+                }
+            }
+        }
+    }
+    vlTOPp->range__DOT__steps = __Vdly__range__DOT__steps;
+    vlTOPp->range__DOT__seen_done = __Vdly__range__DOT__seen_done;
+    vlTOPp->range__DOT__state = __Vdly__range__DOT__state;
+    vlTOPp->range__DOT__num = __Vdly__range__DOT__num;
     if (vlTOPp->range__DOT__cgo) {
         __Vdly__range__DOT__c1__DOT__dout = vlTOPp->range__DOT__n;
-        __Vdly__range__DOT__cdone = (1U == vlTOPp->range__DOT__n);
+        vlTOPp->range__DOT__cdone = 0U;
         __Vdly__range__DOT__c1__DOT__run = (1U != vlTOPp->range__DOT__n);
     } else {
         if (vlTOPp->range__DOT__c1__DOT__run) {
@@ -121,87 +200,15 @@ VL_INLINE_OPT void Vrange::_sequent__TOP__1(Vrange__Syms* __restrict vlSymsp) {
                        >> 1U));
             __Vdly__range__DOT__c1__DOT__dout = vlTOPp->range__DOT__c1__DOT__unnamedblk1__DOT__next_dout;
             if ((1U == vlTOPp->range__DOT__c1__DOT__unnamedblk1__DOT__next_dout)) {
-                __Vdly__range__DOT__cdone = 1U;
+                vlTOPp->range__DOT__cdone = 1U;
                 __Vdly__range__DOT__c1__DOT__run = 0U;
             }
         }
     }
-    if (vlTOPp->range__DOT__we) {
-        __Vdlyvval__range__DOT__mem__v0 = vlTOPp->range__DOT__din;
-        __Vdlyvset__range__DOT__mem__v0 = 1U;
-        __Vdlyvdim0__range__DOT__mem__v0 = vlTOPp->range__DOT__addr;
-    }
+    vlTOPp->range__DOT__cgo = __Vdly__range__DOT__cgo;
+    vlTOPp->range__DOT__n = __Vdly__range__DOT__n;
     vlTOPp->range__DOT__c1__DOT__dout = __Vdly__range__DOT__c1__DOT__dout;
     vlTOPp->range__DOT__c1__DOT__run = __Vdly__range__DOT__c1__DOT__run;
-    if (__Vdlyvset__range__DOT__mem__v0) {
-        vlTOPp->range__DOT__mem[__Vdlyvdim0__range__DOT__mem__v0] 
-            = __Vdlyvval__range__DOT__mem__v0;
-    }
-    vlTOPp->range__DOT__cgo = 0U;
-    vlTOPp->range__DOT__we = 0U;
-    if ((4U & (IData)(vlTOPp->range__DOT__state))) {
-        if ((2U & (IData)(vlTOPp->range__DOT__state))) {
-            __Vdly__range__DOT__state = 0U;
-        } else {
-            if ((1U & (IData)(vlTOPp->range__DOT__state))) {
-                __Vdly__range__DOT__state = 0U;
-            } else {
-                vlTOPp->done = 1U;
-                if (vlTOPp->go) {
-                    vlTOPp->done = 0U;
-                    __Vdly__range__DOT__num = 0U;
-                    __Vdly__range__DOT__n = vlTOPp->start;
-                    __Vdly__range__DOT__steps = 0U;
-                    vlTOPp->range__DOT__cgo = 1U;
-                    __Vdly__range__DOT__state = 1U;
-                }
-            }
-        }
-    } else {
-        if ((2U & (IData)(vlTOPp->range__DOT__state))) {
-            if ((1U & (IData)(vlTOPp->range__DOT__state))) {
-                __Vdly__range__DOT__num = (0xfU & ((IData)(1U) 
-                                                   + (IData)(vlTOPp->range__DOT__num)));
-                __Vdly__range__DOT__n = ((IData)(1U) 
-                                         + vlTOPp->range__DOT__n);
-                __Vdly__range__DOT__steps = 0U;
-                vlTOPp->range__DOT__cgo = 1U;
-                __Vdly__range__DOT__state = 1U;
-                __Vdly__range__DOT__cdone = 0U;
-            } else {
-                vlTOPp->range__DOT__we = 1U;
-                __Vdly__range__DOT__state = ((0xfU 
-                                              == (IData)(vlTOPp->range__DOT__num))
-                                              ? 4U : 3U);
-            }
-        } else {
-            if ((1U & (IData)(vlTOPp->range__DOT__state))) {
-                if (vlTOPp->range__DOT__cdone) {
-                    vlTOPp->range__DOT__din = vlTOPp->range__DOT__steps;
-                    __Vdly__range__DOT__state = 2U;
-                } else {
-                    __Vdly__range__DOT__steps = (0xffffU 
-                                                 & ((IData)(1U) 
-                                                    + (IData)(vlTOPp->range__DOT__steps)));
-                }
-            } else {
-                vlTOPp->done = 0U;
-                __Vdly__range__DOT__steps = 0U;
-                if (vlTOPp->go) {
-                    __Vdly__range__DOT__num = 0U;
-                    __Vdly__range__DOT__n = vlTOPp->start;
-                    __Vdly__range__DOT__steps = 0U;
-                    vlTOPp->range__DOT__cgo = 1U;
-                    __Vdly__range__DOT__state = 1U;
-                }
-            }
-        }
-    }
-    vlTOPp->range__DOT__steps = __Vdly__range__DOT__steps;
-    vlTOPp->range__DOT__n = __Vdly__range__DOT__n;
-    vlTOPp->range__DOT__cdone = __Vdly__range__DOT__cdone;
-    vlTOPp->range__DOT__state = __Vdly__range__DOT__state;
-    vlTOPp->range__DOT__num = __Vdly__range__DOT__num;
 }
 
 void Vrange::_initial__TOP__2(Vrange__Syms* __restrict vlSymsp) {
@@ -290,6 +297,7 @@ void Vrange::_ctor_var_reset() {
     range__DOT__cdone = VL_RAND_RESET_I(1);
     range__DOT__n = VL_RAND_RESET_I(32);
     range__DOT__num = VL_RAND_RESET_I(4);
+    range__DOT__seen_done = VL_RAND_RESET_I(1);
     range__DOT__steps = VL_RAND_RESET_I(16);
     range__DOT__we = VL_RAND_RESET_I(1);
     range__DOT__din = VL_RAND_RESET_I(16);

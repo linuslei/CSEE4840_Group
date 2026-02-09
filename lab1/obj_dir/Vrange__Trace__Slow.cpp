@@ -60,36 +60,37 @@ void Vrange::traceInitThis__1(Vrange__Syms* __restrict vlSymsp, VerilatedVcd* vc
     if (0 && vcdp && c) {}  // Prevent unused
     // Body
     {
-        vcdp->declBit(c+225,"clk", false,-1);
-        vcdp->declBit(c+233,"go", false,-1);
-        vcdp->declBus(c+241,"start", false,-1, 31,0);
-        vcdp->declBit(c+249,"done", false,-1);
-        vcdp->declBus(c+257,"count", false,-1, 15,0);
-        vcdp->declBus(c+265,"range RAM_WORDS", false,-1, 31,0);
-        vcdp->declBus(c+273,"range RAM_ADDR_BITS", false,-1, 31,0);
-        vcdp->declBit(c+225,"range clk", false,-1);
-        vcdp->declBit(c+233,"range go", false,-1);
-        vcdp->declBus(c+241,"range start", false,-1, 31,0);
-        vcdp->declBit(c+249,"range done", false,-1);
-        vcdp->declBus(c+257,"range count", false,-1, 15,0);
+        vcdp->declBit(c+233,"clk", false,-1);
+        vcdp->declBit(c+241,"go", false,-1);
+        vcdp->declBus(c+249,"start", false,-1, 31,0);
+        vcdp->declBit(c+257,"done", false,-1);
+        vcdp->declBus(c+265,"count", false,-1, 15,0);
+        vcdp->declBus(c+273,"range RAM_WORDS", false,-1, 31,0);
+        vcdp->declBus(c+281,"range RAM_ADDR_BITS", false,-1, 31,0);
+        vcdp->declBit(c+233,"range clk", false,-1);
+        vcdp->declBit(c+241,"range go", false,-1);
+        vcdp->declBus(c+249,"range start", false,-1, 31,0);
+        vcdp->declBit(c+257,"range done", false,-1);
+        vcdp->declBus(c+265,"range count", false,-1, 15,0);
         vcdp->declBit(c+17,"range cgo", false,-1);
         vcdp->declBit(c+25,"range cdone", false,-1);
         vcdp->declBus(c+33,"range n", false,-1, 31,0);
         vcdp->declBus(c+41,"range num", false,-1, 3,0);
-        vcdp->declBus(c+49,"range steps", false,-1, 15,0);
-        vcdp->declBit(c+57,"range we", false,-1);
-        vcdp->declBus(c+65,"range din", false,-1, 15,0);
+        vcdp->declBit(c+49,"range seen_done", false,-1);
+        vcdp->declBus(c+57,"range steps", false,-1, 15,0);
+        vcdp->declBit(c+65,"range we", false,-1);
+        vcdp->declBus(c+73,"range din", false,-1, 15,0);
         {int i; for (i=0; i<16; i++) {
-                vcdp->declBus(c+73+i*1,"range mem", true,(i+0), 15,0);}}
+                vcdp->declBus(c+81+i*1,"range mem", true,(i+0), 15,0);}}
         vcdp->declBus(c+9,"range addr", false,-1, 3,0);
         vcdp->declBus(c+1,"range state", false,-1, 2,0);
-        vcdp->declBit(c+225,"range c1 clk", false,-1);
+        vcdp->declBit(c+233,"range c1 clk", false,-1);
         vcdp->declBit(c+17,"range c1 go", false,-1);
         vcdp->declBus(c+33,"range c1 n", false,-1, 31,0);
-        vcdp->declBus(c+201,"range c1 dout", false,-1, 31,0);
+        vcdp->declBus(c+209,"range c1 dout", false,-1, 31,0);
         vcdp->declBit(c+25,"range c1 done", false,-1);
-        vcdp->declBit(c+209,"range c1 run", false,-1);
-        vcdp->declBus(c+217,"range c1 unnamedblk1 next_dout", false,-1, 31,0);
+        vcdp->declBit(c+217,"range c1 run", false,-1);
+        vcdp->declBus(c+225,"range c1 unnamedblk1 next_dout", false,-1, 31,0);
     }
 }
 
@@ -105,34 +106,35 @@ void Vrange::traceFullThis__1(Vrange__Syms* __restrict vlSymsp, VerilatedVcd* vc
         vcdp->fullBit(c+25,(vlTOPp->range__DOT__cdone));
         vcdp->fullBus(c+33,(vlTOPp->range__DOT__n),32);
         vcdp->fullBus(c+41,(vlTOPp->range__DOT__num),4);
-        vcdp->fullBus(c+49,(vlTOPp->range__DOT__steps),16);
-        vcdp->fullBit(c+57,(vlTOPp->range__DOT__we));
-        vcdp->fullBus(c+65,(vlTOPp->range__DOT__din),16);
-        vcdp->fullBus(c+73,(vlTOPp->range__DOT__mem[0]),16);
-        vcdp->fullBus(c+74,(vlTOPp->range__DOT__mem[1]),16);
-        vcdp->fullBus(c+75,(vlTOPp->range__DOT__mem[2]),16);
-        vcdp->fullBus(c+76,(vlTOPp->range__DOT__mem[3]),16);
-        vcdp->fullBus(c+77,(vlTOPp->range__DOT__mem[4]),16);
-        vcdp->fullBus(c+78,(vlTOPp->range__DOT__mem[5]),16);
-        vcdp->fullBus(c+79,(vlTOPp->range__DOT__mem[6]),16);
-        vcdp->fullBus(c+80,(vlTOPp->range__DOT__mem[7]),16);
-        vcdp->fullBus(c+81,(vlTOPp->range__DOT__mem[8]),16);
-        vcdp->fullBus(c+82,(vlTOPp->range__DOT__mem[9]),16);
-        vcdp->fullBus(c+83,(vlTOPp->range__DOT__mem[10]),16);
-        vcdp->fullBus(c+84,(vlTOPp->range__DOT__mem[11]),16);
-        vcdp->fullBus(c+85,(vlTOPp->range__DOT__mem[12]),16);
-        vcdp->fullBus(c+86,(vlTOPp->range__DOT__mem[13]),16);
-        vcdp->fullBus(c+87,(vlTOPp->range__DOT__mem[14]),16);
-        vcdp->fullBus(c+88,(vlTOPp->range__DOT__mem[15]),16);
-        vcdp->fullBus(c+201,(vlTOPp->range__DOT__c1__DOT__dout),32);
-        vcdp->fullBit(c+209,(vlTOPp->range__DOT__c1__DOT__run));
-        vcdp->fullBus(c+217,(vlTOPp->range__DOT__c1__DOT__unnamedblk1__DOT__next_dout),32);
-        vcdp->fullBit(c+225,(vlTOPp->clk));
-        vcdp->fullBit(c+233,(vlTOPp->go));
-        vcdp->fullBus(c+241,(vlTOPp->start),32);
-        vcdp->fullBit(c+249,(vlTOPp->done));
-        vcdp->fullBus(c+257,(vlTOPp->count),16);
-        vcdp->fullBus(c+265,(0x10U),32);
-        vcdp->fullBus(c+273,(4U),32);
+        vcdp->fullBit(c+49,(vlTOPp->range__DOT__seen_done));
+        vcdp->fullBus(c+57,(vlTOPp->range__DOT__steps),16);
+        vcdp->fullBit(c+65,(vlTOPp->range__DOT__we));
+        vcdp->fullBus(c+73,(vlTOPp->range__DOT__din),16);
+        vcdp->fullBus(c+81,(vlTOPp->range__DOT__mem[0]),16);
+        vcdp->fullBus(c+82,(vlTOPp->range__DOT__mem[1]),16);
+        vcdp->fullBus(c+83,(vlTOPp->range__DOT__mem[2]),16);
+        vcdp->fullBus(c+84,(vlTOPp->range__DOT__mem[3]),16);
+        vcdp->fullBus(c+85,(vlTOPp->range__DOT__mem[4]),16);
+        vcdp->fullBus(c+86,(vlTOPp->range__DOT__mem[5]),16);
+        vcdp->fullBus(c+87,(vlTOPp->range__DOT__mem[6]),16);
+        vcdp->fullBus(c+88,(vlTOPp->range__DOT__mem[7]),16);
+        vcdp->fullBus(c+89,(vlTOPp->range__DOT__mem[8]),16);
+        vcdp->fullBus(c+90,(vlTOPp->range__DOT__mem[9]),16);
+        vcdp->fullBus(c+91,(vlTOPp->range__DOT__mem[10]),16);
+        vcdp->fullBus(c+92,(vlTOPp->range__DOT__mem[11]),16);
+        vcdp->fullBus(c+93,(vlTOPp->range__DOT__mem[12]),16);
+        vcdp->fullBus(c+94,(vlTOPp->range__DOT__mem[13]),16);
+        vcdp->fullBus(c+95,(vlTOPp->range__DOT__mem[14]),16);
+        vcdp->fullBus(c+96,(vlTOPp->range__DOT__mem[15]),16);
+        vcdp->fullBus(c+209,(vlTOPp->range__DOT__c1__DOT__dout),32);
+        vcdp->fullBit(c+217,(vlTOPp->range__DOT__c1__DOT__run));
+        vcdp->fullBus(c+225,(vlTOPp->range__DOT__c1__DOT__unnamedblk1__DOT__next_dout),32);
+        vcdp->fullBit(c+233,(vlTOPp->clk));
+        vcdp->fullBit(c+241,(vlTOPp->go));
+        vcdp->fullBus(c+249,(vlTOPp->start),32);
+        vcdp->fullBit(c+257,(vlTOPp->done));
+        vcdp->fullBus(c+265,(vlTOPp->count),16);
+        vcdp->fullBus(c+273,(0x10U),32);
+        vcdp->fullBus(c+281,(4U),32);
     }
 }

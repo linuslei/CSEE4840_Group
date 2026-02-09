@@ -35,6 +35,7 @@ VL_MODULE(Vrange) {
     CData/*0:0*/ range__DOT__cgo;
     CData/*0:0*/ range__DOT__cdone;
     CData/*3:0*/ range__DOT__num;
+    CData/*0:0*/ range__DOT__seen_done;
     CData/*0:0*/ range__DOT__we;
     CData/*3:0*/ range__DOT__addr;
     CData/*2:0*/ range__DOT__state;

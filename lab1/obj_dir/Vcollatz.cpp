@@ -95,7 +95,7 @@ VL_INLINE_OPT void Vcollatz::_sequent__TOP__1(Vcollatz__Syms* __restrict vlSymsp
     __Vdly__dout = vlTOPp->dout;
     if (vlTOPp->go) {
         __Vdly__dout = vlTOPp->n;
-        vlTOPp->done = (1U == vlTOPp->n);
+        vlTOPp->done = 0U;
         __Vdly__collatz__DOT__run = (1U != vlTOPp->n);
     } else {
         if (vlTOPp->collatz__DOT__run) {
